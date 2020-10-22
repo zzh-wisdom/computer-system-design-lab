@@ -1,0 +1,10 @@
+--- configs/common/MemConfig.py	Sun Sep 15 13:45:59 2013 -0500
++++ configs/common/MemConfig.py	Tue Sep 17 13:10:35 2013 -0400
+@@ -54,6 +54,7 @@
+     ("lpddr2_s4_1066_x32", "LPDDR2_S4_1066_x32"),
+     ("lpddr3_1600_x32", "LPDDR3_1600_x32"),
+     ("wio_200_x128", "WideIO_200_x128"),
++    ("nvmain", "NVMainMemory"),
+     ]
+ 
+ # Filtered list of aliases. Only aliases for existing memory
