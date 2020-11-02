@@ -209,7 +209,7 @@ static int hashmap_rehash(struct hashmap_base *hb, size_t table_size)
         *new_entry = *entry;
     }
 #ifdef ENABLE_NVM
-    pfree(old_table);
+    pfree(old_table, sizeof(old_table));
 #else
     free(old_table);
 #endif
@@ -263,11 +263,11 @@ void hashmap_base_cleanup(struct hashmap_base *hb)
         return;
     }
     hashmap_free_keys(hb);
-// #ifdef ENABLE_NVM
-//     pfree(hb->table);
-// #else
+#ifdef ENABLE_NVM
+    pfree(hb->table, sizeof(hb->table));
+#else
     free(hb->table);
-// #endif
+#endif
     memset(hb, 0, sizeof(*hb));
 }
 

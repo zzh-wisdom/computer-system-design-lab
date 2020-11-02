@@ -7,7 +7,7 @@ set(CMAKE_C_STANDARD 99)
 # Build options
 
 option(HASHMAP_BUILD_TESTS "Build tests" ON)
-option(ENABEL_NVM "Build with NVM" ON)
+option(ENABLE_NVM "Build with NVM" ON)
 
 ##############################################
 # Set default build to release
@@ -23,10 +23,10 @@ add_library(hashmap
     src/hashmap.c
 )
 
-if(ENABEL_NVM)
+if(ENABLE_NVM)
     LINK_DIRECTORIES(../quartz/build/src/lib)
     target_link_libraries(hashmap -lnvmemul)
-endif(ENABEL_NVM)
+endif(ENABLE_NVM)
 
 # Add an alias so that library can be used inside the build tree,
 # e.g. when testing
